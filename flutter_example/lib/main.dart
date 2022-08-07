@@ -56,49 +56,51 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Column(
-        children: [
-          Expanded(
-            child: ListenerView(
-              title: 'Listener 1',
-              eventsListController: _listener1Controller,
-              onOutputAppended: (totalEvents) {
-                _scrollDown(_listener1Controller, totalEvents);
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListenerView(
+                title: 'Listener 1',
+                eventsListController: _listener1Controller,
+                onOutputAppended: (totalEvents) {
+                  _scrollDown(_listener1Controller, totalEvents);
+                },
+              ),
+            ),
+            Expanded(
+              child: ListenerView(
+                title: 'Listener 2',
+                eventsListController: _listener2Controller,
+                onOutputAppended: (totalEvents) {
+                  _scrollDown(_listener2Controller, totalEvents);
+                },
+              ),
+            ),
+            Footer(
+              titleA: 'Fire EventA $fireLabelAText',
+              titleB: 'Fire EventB $fireLabelBText',
+              onFireATap: () {
+                eventBus.fire(
+                  MyEventA('Received Event A [$counterA]'),
+                );
+                setState(() {
+                  fireLabelAText = '--> fired [$counterA]';
+                  counterA++;
+                });
+              },
+              onFireBTap: () {
+                eventBus.fire(
+                  MyEventB('Received Event B [$counterB]'),
+                );
+                setState(() {
+                  fireLabelBText = '--> fired [$counterB]';
+                  counterB++;
+                });
               },
             ),
-          ),
-          Expanded(
-            child: ListenerView(
-              title: 'Listener 2',
-              eventsListController: _listener2Controller,
-              onOutputAppended: (totalEvents) {
-                _scrollDown(_listener2Controller, totalEvents);
-              },
-            ),
-          ),
-          Footer(
-            titleA: 'Fire EventA $fireLabelAText',
-            titleB: 'Fire EventB $fireLabelBText',
-            onFireATap: () {
-              eventBus.fire(
-                MyEventA('Received Event A [$counterA]'),
-              );
-              setState(() {
-                fireLabelAText = '--> fired [$counterA]';
-                counterA++;
-              });
-            },
-            onFireBTap: () {
-              eventBus.fire(
-                MyEventB('Received Event B [$counterB]'),
-              );
-              setState(() {
-                fireLabelBText = '--> fired [$counterB]';
-                counterB++;
-              });
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

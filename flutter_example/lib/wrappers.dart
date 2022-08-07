@@ -38,6 +38,8 @@ class NeoPopElevatedStrokesButtonWrapper extends StatelessWidget {
               title,
               style: const TextStyle(
                 color: Colors.white,
+                height: 1.2,
+                letterSpacing: 1.0,
               ),
             ),
           ],

@@ -56,7 +56,10 @@ class FooterButton extends StatelessWidget {
       child: NeoPopButton(
         color: const Color.fromRGBO(0, 0, 0, 1),
         border: const Border.fromBorderSide(
-          BorderSide(color: kBorderColorWhite, width: kButtonBorderWidth,),
+          BorderSide(
+            color: kBorderColorWhite,
+            width: kButtonBorderWidth,
+          ),
         ),
         onTapUp: onTapUp,
         child: Center(
@@ -67,7 +70,11 @@ class FooterButton extends StatelessWidget {
             ),
             child: Text(
               title,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(
+                color: Colors.white,
+                height: 1.2,
+                letterSpacing: 1.0,
+              ),
             ),
           ),
         ),

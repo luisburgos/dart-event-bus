@@ -203,7 +203,9 @@ class ListViewHeader extends StatelessWidget {
                 Text(
                   'CANCEL & CLEAR',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 14,
+                    height: 1.2,
+                    letterSpacing: 1.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -267,7 +269,9 @@ class EventListViewTile extends StatelessWidget {
       style: GoogleFonts.robotoMono(
         textStyle: const TextStyle(
           color: Colors.white,
-          fontSize: 10,
+          fontSize: 12,
+          height: 1.2,
+          letterSpacing: 1.0,
           fontWeight: FontWeight.w300,
         ),
       ),
